@@ -7,9 +7,527 @@
     <meta name="keywords" content="Laurent Guizard, AWS, Amazon Web Services, Banking Technology, Cloud Solutions, Principal, Singapore">
     <meta name="author" content="Laurent Guizard">
     <title>Laurent Guizard - Principal at Amazon Web Services (AWS)</title>
-    
+
     <style>
-        /* CSS will be added in Step 2 */
+        /* Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-color: #0a66c2;
+            --primary-hover: #004182;
+            --text-primary: #191919;
+            --text-secondary: #666666;
+            --text-muted: #888888;
+            --bg-primary: #f4f2ee;
+            --bg-card: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        /* Header Card */
+        .header-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(135deg, #0a66c2 0%, #004182 50%, #00294d 100%);
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 700;
+            margin: 40px auto 20px;
+            position: relative;
+            z-index: 1;
+            border: 5px solid var(--bg-card);
+            box-shadow: var(--shadow-md);
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .location {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .stats span {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .stats span:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .social-link--linkedin {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .social-link--linkedin:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .social-link--github {
+            background-color: #24292e;
+            color: white;
+        }
+
+        .social-link--github:hover {
+            background-color: #1a1e22;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-content p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .card-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-item:first-child {
+            padding-top: 0;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .company-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .job-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .duration {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .job-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Certification Section */
+        .certification-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .certification-item:first-child {
+            padding-top: 0;
+        }
+
+        .certification-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .certification-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .certification-details {
+            flex: 1;
+        }
+
+        .certification-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .certification-issuer {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .certification-date {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .institution-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .degree {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .courses-section {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .courses-section h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .courses-list {
+            list-style: none;
+        }
+
+        .courses-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .courses-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Projects Section */
+        .project-item {
+            padding: 0;
+        }
+
+        .project-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .project-duration {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Languages Section */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .language-item {
+            background: var(--bg-primary);
+            padding: 16px;
+            border-radius: var(--radius-sm);
+        }
+
+        .language-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .language-level {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Recommendations Section */
+        .recommendation-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .recommendation-item:first-child {
+            padding-top: 0;
+        }
+
+        .recommendation-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .recommender-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .recommendation-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 16px;
+            margin: 0;
+        }
+
+        .recommendations-count {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .recommendations-count p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px 12px;
+            }
+
+            .header-card {
+                padding: 24px 16px;
+            }
+
+            .header-card::before {
+                height: 100px;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                font-size: 40px;
+                margin-top: 30px;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+
+            .title {
+                font-size: 16px;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-link {
+                width: 100%;
+                max-width: 200px;
+                justify-content: center;
+            }
+
+            .card-title {
+                padding: 16px 20px;
+                font-size: 18px;
+            }
+
+            .card-content {
+                padding: 20px;
+            }
+
+            .certification-item {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .languages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .content-card:nth-child(1) { animation-delay: 0.1s; }
+        .content-card:nth-child(2) { animation-delay: 0.2s; }
+        .content-card:nth-child(3) { animation-delay: 0.3s; }
+        .content-card:nth-child(4) { animation-delay: 0.4s; }
+        .content-card:nth-child(5) { animation-delay: 0.5s; }
+        .content-card:nth-child(6) { animation-delay: 0.6s; }
+        .content-card:nth-child(7) { animation-delay: 0.7s; }
     </style>
 </head>
 <body>
@@ -22,16 +540,16 @@
             <h1 class="name">Laurent Guizard</h1>
             <p class="title">Principal at Amazon Web Services (AWS)</p>
             <p class="location">Singapore</p>
-            
+
             <div class="stats" aria-label="Profile Statistics">
                 <span>3K+ followers</span>
                 <span>500+ connections</span>
             </div>
-            
+
             <nav class="social-links" aria-label="Social Media Links">
-                <a href="https://www.linkedin.com/in/laurent-guizard/" 
-                   class="social-link social-link--linkedin" 
-                   target="_blank" 
+                <a href="https://www.linkedin.com/in/laurent-guizard/"
+                   class="social-link social-link--linkedin"
+                   target="_blank"
                    rel="noopener noreferrer"
                    aria-label="LinkedIn Profile">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -39,10 +557,10 @@
                     </svg>
                     LinkedIn
                 </a>
-                
-                <a href="https://github.com/laurentguizard" 
-                   class="social-link social-link--github" 
-                   target="_blank" 
+
+                <a href="https://github.com/laurentguizard"
+                   class="social-link social-link--github"
+                   target="_blank"
                    rel="noopener noreferrer"
                    aria-label="GitHub Profile">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -75,7 +593,7 @@
                         <p class="duration">Current Position</p>
                         <p class="job-description">Leading cloud transformation initiatives and providing strategic guidance for enterprise customers in the financial services sector. Specializing in banking technology modernization and cloud-native architecture design.</p>
                     </div>
-                    
+
                     <div class="experience-item">
                         <h3 class="company-name">Banking Technology Sector</h3>
                         <p class="job-title">Senior Technology Leader</p>
@@ -97,7 +615,7 @@
                             <p class="certification-date">Issued Aug 2019 • Credential ID: PL24NBY2KKDQ</p>
                         </div>
                     </div>
-                    
+
                     <div class="certification-item">
                         <div class="certification-icon" aria-hidden="true">K8</div>
                         <div class="certification-details">
@@ -106,7 +624,7 @@
                             <p class="certification-date">Issued Jul 2019</p>
                         </div>
                     </div>
-                    
+
                     <div class="certification-item">
                         <div class="certification-icon" aria-hidden="true">IE</div>
                         <div class="certification-details">
@@ -115,7 +633,7 @@
                             <p class="certification-date">Issued Jul 2019 • Credential ID: 439ET37W488J</p>
                         </div>
                     </div>
-                    
+
                     <div class="certification-item">
                         <div class="certification-icon" aria-hidden="true">MS</div>
                         <div class="certification-details">
@@ -124,7 +642,7 @@
                             <p class="certification-date">Issued Jul 2019</p>
                         </div>
                     </div>
-                    
+
                     <div class="certification-item">
                         <div class="certification-icon" aria-hidden="true">UC</div>
                         <div class="certification-details">
@@ -133,7 +651,7 @@
                             <p class="certification-date">Issued Jul 2019 • Credential ID: G67W8VGQXY4F</p>
                         </div>
                     </div>
-                    
+
                     <div class="certification-item">
                         <div class="certification-icon" aria-hidden="true">SM</div>
                         <div class="certification-details">
@@ -142,7 +660,7 @@
                             <p class="certification-date">Issued Aug 2018 • Credential ID: 925130</p>
                         </div>
                     </div>
-                    
+
                     <div class="certification-item">
                         <div class="certification-icon" aria-hidden="true">DC</div>
                         <div class="certification-details">
@@ -151,7 +669,7 @@
                             <p class="certification-date">Issued Jan 2011 • Credential ID: 60570111116236</p>
                         </div>
                     </div>
-                    
+
                     <div class="certification-item">
                         <div class="certification-icon" aria-hidden="true">BC</div>
                         <div class="certification-details">
@@ -171,7 +689,7 @@
                         <h3 class="institution-name">EFREI - Ecole Française d'Electronique et d'Informatique</h3>
                         <p class="degree">Engineering Degree in Electronics and Computer Science</p>
                     </div>
-                    
+
                     <div class="courses-section">
                         <h4>Professional Development Courses</h4>
                         <ul class="courses-list">
@@ -193,9 +711,9 @@
                         <h3 class="project-name">Singapore Datacentre Building and Migration</h3>
                         <p class="project-duration">Feb 2012 - Aug 2012</p>
                         <p class="project-description">
-                            Acted as the project manager for the creation and migration to a new datacentre in Singapore. 
-                            This comprehensive project involved the complete setup of the datacentre infrastructure and 
-                            the migration of all systems including hundreds of servers, storage systems, and network equipment. 
+                            Acted as the project manager for the creation and migration to a new datacentre in Singapore.
+                            This comprehensive project involved the complete setup of the datacentre infrastructure and
+                            the migration of all systems including hundreds of servers, storage systems, and network equipment.
                             Successfully delivered the project on time while ensuring zero data loss and minimal downtime during the migration process.
                         </p>
                     </div>
@@ -211,17 +729,17 @@
                             <h3 class="language-name">French</h3>
                             <p class="language-level">Native or bilingual proficiency</p>
                         </div>
-                        
+
                         <div class="language-item">
                             <h3 class="language-name">English</h3>
                             <p class="language-level">Full professional proficiency</p>
                         </div>
-                        
+
                         <div class="language-item">
                             <h3 class="language-name">German</h3>
                             <p class="language-level">Elementary proficiency</p>
                         </div>
-                        
+
                         <div class="language-item">
                             <h3 class="language-name">Swedish</h3>
                             <p class="language-level">Elementary proficiency</p>
@@ -242,7 +760,7 @@
                             "I worked with Laurent on an internal innovative DLT project to streamline and simplify Corporate Action election processes during his time at BNP Paribas. During this project, Laurent demonstrated strong DLT / Blockchain technical lead and expertise allowing us to progress fast on the POC / MVP, so can only recommend his expertise."
                         </blockquote>
                     </div>
-                    
+
                     <div class="recommendation-item">
                         <div class="recommender-info">
                             <h3 class="recommender-name">Anand Petrus</h3>
@@ -251,7 +769,7 @@
                             "It was a great time of learning, working with Laurent in 2 different phases for me - one as a consumer of a custom built and managed cloud platform that he evangelised / managed across APAC and next as a team member working on a bunch of innovation projects. His solutions and technology answers were not just picked from internet reading, rather they came out of hands-on PoCs. Patience, accurate fit for an use case, identifying in-depth details for every solution were the best learning points I could take from Laurent during our work together. A pleasant demeanor by virtue even at stressful times in a project is something I will commend as Laurent's leadership quality."
                         </blockquote>
                     </div>
-                    
+
                     <div class="recommendations-count">
                         <p><strong>7 people</strong> have recommended Laurent</p>
                     </div>
