@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Laurent Guizard - Principal at Amazon Web Services (AWS). Two decades of experience in banking technology and cloud solutions.">
-    <meta name="keywords" content="Laurent Guizard, AWS, Amazon Web Services, Banking Technology, Cloud Solutions, Principal, Singapore">
+    <meta name="keywords" content="Laurent Guizard, AWS, Amazon Web Services, Banking Technology, Cloud Solutions, Principal, Singapore, AWS Certified">
     <meta name="author" content="Laurent Guizard">
     <title>Laurent Guizard - Principal at Amazon Web Services (AWS)</title>
 
@@ -19,6 +19,8 @@
         :root {
             --primary-color: #0a66c2;
             --primary-hover: #004182;
+            --aws-orange: #ff9900;
+            --aws-dark: #232f3e;
             --text-primary: #191919;
             --text-secondary: #666666;
             --text-muted: #888888;
@@ -66,15 +68,15 @@
             left: 0;
             right: 0;
             height: 120px;
-            background: linear-gradient(135deg, #0a66c2 0%, #004182 50%, #00294d 100%);
+            background: linear-gradient(135deg, #232f3e 0%, #37475a 50%, #485769 100%);
         }
 
         .profile-image {
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #ff9900 0%, #ffb84d 100%);
+            color: var(--aws-dark);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -168,6 +170,17 @@
             box-shadow: var(--shadow-sm);
         }
 
+        .social-link--credly {
+            background-color: var(--aws-orange);
+            color: var(--aws-dark);
+        }
+
+        .social-link--credly:hover {
+            background-color: #e68a00;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
         /* Content Cards */
         .content-card {
             background: var(--bg-card);
@@ -196,6 +209,133 @@
 
         .card-content p:last-child {
             margin-bottom: 0;
+        }
+
+        /* AWS Certifications Section */
+        .cert-highlight {
+            background: linear-gradient(135deg, #232f3e 0%, #37475a 100%);
+            color: white;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 3px solid var(--aws-orange);
+        }
+
+        .cert-highlight-icon {
+            font-size: 24px;
+        }
+
+        .cert-highlight-text {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .cert-highlight-count {
+            background: var(--aws-orange);
+            color: var(--aws-dark);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-weight: 700;
+            margin-left: auto;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .cert-item {
+            display: flex;
+            gap: 14px;
+            padding: 16px;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--aws-orange);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cert-item--professional {
+            border-left-color: #c9a227;
+            background: linear-gradient(135deg, #fffdf5 0%, #fff9e6 100%);
+        }
+
+        .cert-item--specialty {
+            border-left-color: #5c6bc0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+        }
+
+        .cert-item--associate {
+            border-left-color: #26a69a;
+        }
+
+        .cert-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background: var(--aws-dark);
+            color: var(--aws-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 11px;
+            flex-shrink: 0;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .cert-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cert-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .cert-issuer {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .cert-date {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .cert-badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .cert-badge--pro {
+            background: linear-gradient(135deg, #c9a227 0%, #d4af37 100%);
+            color: white;
+        }
+
+        .cert-badge--specialty {
+            background: linear-gradient(135deg, #5c6bc0 0%, #7986cb 100%);
+            color: white;
+        }
+
+        .cert-badge--early {
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            color: white;
         }
 
         /* Experience Section */
@@ -236,59 +376,6 @@
             font-size: 14px;
             color: var(--text-secondary);
             line-height: 1.7;
-        }
-
-        /* Certification Section */
-        .certification-item {
-            display: flex;
-            gap: 16px;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .certification-item:first-child {
-            padding-top: 0;
-        }
-
-        .certification-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .certification-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--radius-sm);
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        .certification-details {
-            flex: 1;
-        }
-
-        .certification-name {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .certification-issuer {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 2px;
-        }
-
-        .certification-date {
-            font-size: 12px;
-            color: var(--text-muted);
         }
 
         /* Education Section */
@@ -337,7 +424,7 @@
             content: '→';
             position: absolute;
             left: 0;
-            color: var(--primary-color);
+            color: var(--aws-orange);
         }
 
         /* Projects Section */
@@ -415,7 +502,7 @@
             color: var(--text-secondary);
             line-height: 1.7;
             font-style: italic;
-            border-left: 3px solid var(--primary-color);
+            border-left: 3px solid var(--aws-orange);
             padding-left: 16px;
             margin: 0;
         }
@@ -495,9 +582,17 @@
                 padding: 20px;
             }
 
-            .certification-item {
-                flex-direction: column;
-                gap: 12px;
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-highlight {
+                flex-wrap: wrap;
+            }
+
+            .cert-highlight-count {
+                margin-left: 0;
+                margin-top: 8px;
             }
 
             .languages-grid {
@@ -568,6 +663,17 @@
                     </svg>
                     GitHub
                 </a>
+
+                <a href="https://www.credly.com/users/laurent-guizard.af741e1d"
+                   class="social-link social-link--credly"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Credly Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm-1-15h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                    Credly
+                </a>
             </nav>
         </header>
 
@@ -583,6 +689,110 @@
                 </div>
             </section>
 
+            <!-- AWS Certifications Section -->
+            <section class="content-card" aria-labelledby="certifications-heading">
+                <div class="cert-highlight">
+                    <span class="cert-highlight-icon">🏆</span>
+                    <span class="cert-highlight-text">AWS Certified Professional</span>
+                    <span class="cert-highlight-count">9 Active Certifications</span>
+                </div>
+                <h2 id="certifications-heading" class="card-title">AWS Certifications</h2>
+                <div class="card-content">
+                    <div class="cert-grid">
+                        <!-- Professional Level -->
+                        <div class="cert-item cert-item--professional">
+                            <div class="cert-icon">SAP</div>
+                            <div class="cert-details">
+                                <h3 class="cert-name">AWS Certified Solutions Architect – Professional</h3>
+                                <p class="cert-issuer">Amazon Web Services</p>
+                                <p class="cert-date">Expires: March 2028</p>
+                                <span class="cert-badge cert-badge--pro">Professional</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-item cert-item--professional">
+                            <div class="cert-icon">GenAI Pro</div>
+                            <div class="cert-details">
+                                <h3 class="cert-name">AWS Certified Generative AI Developer – Professional</h3>
+                                <p class="cert-issuer">Amazon Web Services</p>
+                                <p class="cert-date">Expires: January 2029</p>
+                                <span class="cert-badge cert-badge--pro">Professional</span>
+                                <span class="cert-badge cert-badge--early">Early Adopter</span>
+                            </div>
+                        </div>
+
+                        <!-- Specialty Level -->
+                        <div class="cert-item cert-item--specialty">
+                            <div class="cert-icon">SEC</div>
+                            <div class="cert-details">
+                                <h3 class="cert-name">AWS Certified Security – Specialty</h3>
+                                <p class="cert-issuer">Amazon Web Services</p>
+                                <p class="cert-date">Expires: May 2025</p>
+                                <span class="cert-badge cert-badge--specialty">Specialty</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-item cert-item--specialty">
+                            <div class="cert-icon">DAS</div>
+                            <div class="cert-details">
+                                <h3 class="cert-name">AWS Certified Data Analytics – Specialty</h3>
+                                <p class="cert-issuer">Amazon Web Services</p>
+                                <p class="cert-date">Expires: April 2027</p>
+                                <span class="cert-badge cert-badge--specialty">Specialty</span>
+                            </div>
+                        </div>
+
+                        <!-- Associate Level -->
+                        <div class="cert-item cert-item--associate">
+                            <div class="cert-icon">SAA</div>
+                            <div class="cert-details">
+                                <h3 class="cert-name">AWS Certified Solutions Architect – Associate</h3>
+                                <p class="cert-issuer">Amazon Web Services</p>
+                                <p class="cert-date">Expires: March 2028</p>
+                            </div>
+                        </div>
+
+                        <div class="cert-item cert-item--associate">
+                            <div class="cert-icon">MLE</div>
+                            <div class="cert-details">
+                                <h3 class="cert-name">AWS Certified Machine Learning Engineer – Associate</h3>
+                                <p class="cert-issuer">Amazon Web Services</p>
+                                <p class="cert-date">Expires: January 2029</p>
+                            </div>
+                        </div>
+
+                        <div class="cert-item cert-item--associate">
+                            <div class="cert-icon">DEA</div>
+                            <div class="cert-details">
+                                <h3 class="cert-name">AWS Certified Data Engineer – Associate</h3>
+                                <p class="cert-issuer">Amazon Web Services</p>
+                                <p class="cert-date">Expires: January 2029</p>
+                            </div>
+                        </div>
+
+                        <!-- Foundational Level -->
+                        <div class="cert-item">
+                            <div class="cert-icon">AIF</div>
+                            <div class="cert-details">
+                                <h3 class="cert-name">AWS Certified AI Practitioner</h3>
+                                <p class="cert-issuer">Amazon Web Services</p>
+                                <p class="cert-date">Expires: January 2029</p>
+                                <span class="cert-badge cert-badge--early">Early Adopter</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-item">
+                            <div class="cert-icon">CLF</div>
+                            <div class="cert-details">
+                                <h3 class="cert-name">AWS Certified Cloud Practitioner</h3>
+                                <p class="cert-issuer">Amazon Web Services</p>
+                                <p class="cert-date">Expires: January 2029</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Experience Section -->
             <section class="content-card" aria-labelledby="experience-heading">
                 <h2 id="experience-heading" class="card-title">Experience</h2>
@@ -591,7 +801,7 @@
                         <h3 class="company-name">Amazon Web Services (AWS)</h3>
                         <p class="job-title">Principal</p>
                         <p class="duration">Current Position</p>
-                        <p class="job-description">Leading cloud transformation initiatives and providing strategic guidance for enterprise customers in the financial services sector. Specializing in banking technology modernization and cloud-native architecture design.</p>
+                        <p class="job-description">Leading cloud transformation initiatives and providing strategic guidance for enterprise customers in the financial services sector. Specializing in banking technology modernization, generative AI solutions, and cloud-native architecture design.</p>
                     </div>
 
                     <div class="experience-item">
@@ -603,101 +813,23 @@
                 </div>
             </section>
 
-            <!-- Skills & Certifications Section -->
-            <section class="content-card" aria-labelledby="certifications-heading">
-                <h2 id="certifications-heading" class="card-title">Skills & Certifications</h2>
-                <div class="card-content">
-                    <div class="certification-item">
-                        <div class="certification-icon" aria-hidden="true">NU</div>
-                        <div class="certification-details">
-                            <h3 class="certification-name">Leadership Communication for Maximum Impact: Storytelling</h3>
-                            <p class="certification-issuer">Northwestern University via Coursera</p>
-                            <p class="certification-date">Issued Aug 2019 • Credential ID: PL24NBY2KKDQ</p>
-                        </div>
-                    </div>
-
-                    <div class="certification-item">
-                        <div class="certification-icon" aria-hidden="true">K8</div>
-                        <div class="certification-details">
-                            <h3 class="certification-name">Deploying Microservices with Kubernetes</h3>
-                            <p class="certification-issuer">Coursera</p>
-                            <p class="certification-date">Issued Jul 2019</p>
-                        </div>
-                    </div>
-
-                    <div class="certification-item">
-                        <div class="certification-icon" aria-hidden="true">IE</div>
-                        <div class="certification-details">
-                            <h3 class="certification-name">Critical Perspectives on Management</h3>
-                            <p class="certification-issuer">IE Business School via Coursera</p>
-                            <p class="certification-date">Issued Jul 2019 • Credential ID: 439ET37W488J</p>
-                        </div>
-                    </div>
-
-                    <div class="certification-item">
-                        <div class="certification-icon" aria-hidden="true">MS</div>
-                        <div class="certification-details">
-                            <h3 class="certification-name">Microservices Fundamentals</h3>
-                            <p class="certification-issuer">Coursera</p>
-                            <p class="certification-date">Issued Jul 2019</p>
-                        </div>
-                    </div>
-
-                    <div class="certification-item">
-                        <div class="certification-icon" aria-hidden="true">UC</div>
-                        <div class="certification-details">
-                            <h3 class="certification-name">Big Data Modeling and Management Systems</h3>
-                            <p class="certification-issuer">University of California San Diego via Coursera</p>
-                            <p class="certification-date">Issued Jul 2019 • Credential ID: G67W8VGQXY4F</p>
-                        </div>
-                    </div>
-
-                    <div class="certification-item">
-                        <div class="certification-icon" aria-hidden="true">SM</div>
-                        <div class="certification-details">
-                            <h3 class="certification-name">Certified ScrumMaster® (CSM®)</h3>
-                            <p class="certification-issuer">Scrum Alliance</p>
-                            <p class="certification-date">Issued Aug 2018 • Credential ID: 925130</p>
-                        </div>
-                    </div>
-
-                    <div class="certification-item">
-                        <div class="certification-icon" aria-hidden="true">DC</div>
-                        <div class="certification-details">
-                            <h3 class="certification-name">Certified Data Centre Professional (CDCP)</h3>
-                            <p class="certification-issuer">EPI - Enterprise Products Integration Pte Ltd</p>
-                            <p class="certification-date">Issued Jan 2011 • Credential ID: 60570111116236</p>
-                        </div>
-                    </div>
-
-                    <div class="certification-item">
-                        <div class="certification-icon" aria-hidden="true">BC</div>
-                        <div class="certification-details">
-                            <h3 class="certification-name">Associate Business Continuity Professional (ABCP)</h3>
-                            <p class="certification-issuer">DRI International (Disaster Recovery Institute)</p>
-                            <p class="certification-date">Issued Mar 2009</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Education Section -->
             <section class="content-card" aria-labelledby="education-heading">
                 <h2 id="education-heading" class="card-title">Education</h2>
                 <div class="card-content">
                     <div class="education-item">
                         <h3 class="institution-name">EFREI - Ecole Française d'Electronique et d'Informatique</h3>
-                        <p class="degree">Engineering Degree in Electronics and Computer Science</p>
+                        <p class="degree">Engineering Degree in Electronics and Computer Science (1998-2002)</p>
                     </div>
 
                     <div class="courses-section">
-                        <h4>Professional Development Courses</h4>
+                        <h4>Professional Development</h4>
                         <ul class="courses-list">
-                            <li>Blockchain for business - an introduction to Hyperledger Technologies (EDX)</li>
+                            <li>Blockchain for Business - Hyperledger Technologies (EDX)</li>
                             <li>Design Thinking, Human Centered Design (Luma Institute)</li>
-                            <li>Digital Transformation BCG, University of Virginia (Coursera)</li>
-                            <li>Hyperthinking: improve your day to day learning & creativity (Udemy)</li>
-                            <li>On Strategy: What Managers Can Learn from Great Philosophers (Ecole Centrale Paris via Coursera)</li>
+                            <li>Digital Transformation - BCG, University of Virginia (Coursera)</li>
+                            <li>IBM Garage Methodology Explorer</li>
+                            <li>On Strategy: What Managers Can Learn from Great Philosophers (Ecole Centrale Paris)</li>
                         </ul>
                     </div>
                 </div>
