@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurent Guizard - Infographic Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --aws-orange: #ff9900;
+            --aws-dark: #232f3e;
+            --aws-light: #37475a;
+            --gold: #c9a227;
+            --purple: #5c6bc0;
+            --teal: #26a69a;
+            --pink: #e91e63;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-600: #6c757d;
+            --gray-800: #343a40;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--white);
+        }
+
+        .infographic {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--aws-dark) 0%, var(--aws-light) 100%);
+            padding: 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,153,0,0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--aws-orange) 0%, #ffb84d 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--aws-dark);
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 32px rgba(255, 153, 0, 0.4);
+        }
+
+        .name {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 18px;
+            color: var(--aws-orange);
+            font-weight: 600;
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .location {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 24px;
+            background: var(--gray-100);
+            border-bottom: 3px solid var(--aws-orange);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--aws-dark);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* Main Content */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .left-column {
+            padding: 32px;
+            background: var(--white);
+        }
+
+        .right-column {
+            padding: 32px;
+            background: var(--gray-100);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--aws-dark);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--aws-orange);
+            display: inline-block;
+        }
+
+        /* Certifications Grid */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .cert-badge {
+            background: var(--aws-dark);
+            border-radius: 12px;
+            padding: 16px 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .cert-badge:hover {
+            transform: translateY(-4px);
+        }
+
+        .cert-badge--pro {
+            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+        }
+
+        .cert-badge--specialty {
+            background: linear-gradient(135deg, var(--purple) 0%, #7986cb 100%);
+        }
+
+        .cert-badge--associate {
+            background: linear-gradient(135deg, var(--teal) 0%, #4db6ac 100%);
+        }
+
+        .cert-icon {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--aws-orange);
+            margin-bottom: 6px;
+        }
+
+        .cert-badge--pro .cert-icon,
+        .cert-badge--specialty .cert-icon,
+        .cert-badge--associate .cert-icon {
+            color: var(--white);
+        }
+
+        .cert-name {
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.3;
+        }
+
+        .cert-level {
+            font-size: 8px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--aws-orange), var(--teal));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -21px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            background: var(--aws-orange);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--aws-orange);
+        }
+
+        .timeline-year {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--aws-orange);
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 2px;
+        }
+
+        .timeline-company {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        /* Skills */
+        .skills-section {
+            margin-bottom: 32px;
+        }
+
+        .skill-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skill-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-800);
+            width: 100px;
+            flex-shrink: 0;
+        }
+
+        .skill-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--aws-orange) 0%, var(--gold) 100%);
+        }
+
+        /* Languages */
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .language-tag {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .language-tag--native {
+            background: var(--aws-dark);
+            color: var(--white);
+        }
+
+        .language-tag--professional {
+            background: var(--aws-orange);
+            color: var(--aws-dark);
+        }
+
+        .language-tag--elementary {
+            background: var(--gray-200);
+            color: var(--gray-800);
+        }
+
+        /* Education */
+        .education-item {
+            background: var(--white);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--aws-orange);
+        }
+
+        .education-degree {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 4px;
+        }
+
+        .education-school {
+            font-size: 11px;
+            color: var(--gray-600);
+        }
+
+        .education-year {
+            font-size: 10px;
+            color: var(--aws-orange);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* Expertise Tags */
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .expertise-tag {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--aws-dark);
+            border: 2px solid var(--aws-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--aws-dark);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: transform 0.2s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .social-link--linkedin {
+            background: #0a66c2;
+            color: white;
+        }
+
+        .social-link--github {
+            background: #24292e;
+            color: white;
+        }
+
+        .social-link--credly {
+            background: var(--aws-orange);
+            color: var(--aws-dark);
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Early Adopter Badge */
+        .early-badge {
+            display: inline-block;
+            background: var(--pink);
+            color: white;
+            font-size: 7px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            margin-top: 4px;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .certs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header {
+                padding: 32px 24px;
+            }
+
+            .name {
+                font-size: 28px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .infographic {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic">
+        <!-- Header -->
+        <header class="header">
+            <div class="avatar">LG</div>
+            <h1 class="name">Laurent Guizard</h1>
+            <p class="title">Principal Solutions Architect</p>
+            <p class="location">Amazon Web Services (AWS) | Singapore</p>
+        </header>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-value">20+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">9</div>
+                <div class="stat-label">AWS Certifications</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">3K+</div>
+                <div class="stat-label">Followers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">4</div>
+                <div class="stat-label">Languages</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <h2 class="section-title">AWS Certifications</h2>
+                <div class="certs-grid">
+                    <div class="cert-badge cert-badge--pro">
+                        <div class="cert-icon">SAP</div>
+                        <div class="cert-name">Solutions Architect</div>
+                        <div class="cert-level">Professional</div>
+                    </div>
+                    <div class="cert-badge cert-badge--pro">
+                        <div class="cert-icon">GenAI</div>
+                        <div class="cert-name">Generative AI Developer</div>
+                        <div class="cert-level">Professional</div>
+                        <span class="early-badge">EARLY ADOPTER</span>
+                    </div>
+                    <div class="cert-badge cert-badge--specialty">
+                        <div class="cert-icon">SEC</div>
+                        <div class="cert-name">Security</div>
+                        <div class="cert-level">Specialty</div>
+                    </div>
+                    <div class="cert-badge cert-badge--specialty">
+                        <div class="cert-icon">DAS</div>
+                        <div class="cert-name">Data Analytics</div>
+                        <div class="cert-level">Specialty</div>
+                    </div>
+                    <div class="cert-badge cert-badge--associate">
+                        <div class="cert-icon">SAA</div>
+                        <div class="cert-name">Solutions Architect</div>
+                        <div class="cert-level">Associate</div>
+                    </div>
+                    <div class="cert-badge cert-badge--associate">
+                        <div class="cert-icon">MLE</div>
+                        <div class="cert-name">ML Engineer</div>
+                        <div class="cert-level">Associate</div>
+                    </div>
+                    <div class="cert-badge cert-badge--associate">
+                        <div class="cert-icon">DEA</div>
+                        <div class="cert-name">Data Engineer</div>
+                        <div class="cert-level">Associate</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-icon">AIF</div>
+                        <div class="cert-name">AI Practitioner</div>
+                        <div class="cert-level">Foundational</div>
+                        <span class="early-badge">EARLY ADOPTER</span>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-icon">CLF</div>
+                        <div class="cert-name">Cloud Practitioner</div>
+                        <div class="cert-level">Foundational</div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Expertise</h2>
+                <div class="skills-section">
+                    <div class="skill-bars">
+                        <div class="skill-item">
+                            <span class="skill-name">Cloud Architecture</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Generative AI</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Data & Analytics</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Security</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Banking Tech</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Machine Learning</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Languages</h2>
+                <div class="languages">
+                    <span class="language-tag language-tag--native">French (Native)</span>
+                    <span class="language-tag language-tag--professional">English (Professional)</span>
+                    <span class="language-tag language-tag--elementary">German</span>
+                    <span class="language-tag language-tag--elementary">Swedish</span>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <h2 class="section-title">Career Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021 - Present</div>
+                        <div class="timeline-title">Principal Solutions Architect</div>
+                        <div class="timeline-company">Amazon Web Services (AWS)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018 - 2021</div>
+                        <div class="timeline-title">Cloud & Innovation Lead</div>
+                        <div class="timeline-company">BNP Paribas</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2010 - 2018</div>
+                        <div class="timeline-title">Technology Infrastructure Lead</div>
+                        <div class="timeline-company">Banking Sector - Singapore</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2002 - 2010</div>
+                        <div class="timeline-title">IT Infrastructure Specialist</div>
+                        <div class="timeline-company">Financial Services</div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="education-degree">Engineering Degree</div>
+                    <div class="education-school">Electronics & Computer Science</div>
+                    <div class="education-school">EFREI Paris</div>
+                    <div class="education-year">1998 - 2002</div>
+                </div>
+
+                <h2 class="section-title">Focus Areas</h2>
+                <div class="expertise-tags">
+                    <span class="expertise-tag">Cloud Transformation</span>
+                    <span class="expertise-tag">Generative AI</span>
+                    <span class="expertise-tag">Financial Services</span>
+                    <span class="expertise-tag">Data & Analytics</span>
+                    <span class="expertise-tag">Serverless</span>
+                    <span class="expertise-tag">DevOps</span>
+                    <span class="expertise-tag">Microservices</span>
+                    <span class="expertise-tag">Blockchain/DLT</span>
+                    <span class="expertise-tag">Security</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/laurent-guizard/" class="social-link social-link--linkedin" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/laurentguizard" class="social-link social-link--github" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://www.credly.com/users/laurent-guizard.af741e1d" class="social-link social-link--credly" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1 7h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    Credly
+                </a>
+            </div>
+            <p class="footer-text">laurentguizard.github.io | 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
