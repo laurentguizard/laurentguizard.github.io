@@ -73,18 +73,13 @@
         .avatar {
             width: 120px;
             height: 120px;
-            background: linear-gradient(135deg, var(--aws-orange) 0%, #ffb84d 100%);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--aws-dark);
             margin: 0 auto 20px;
             position: relative;
             z-index: 1;
             box-shadow: 0 8px 32px rgba(255, 153, 0, 0.4);
+            object-fit: cover;
+            border: 4px solid var(--aws-orange);
         }
 
         .name {
@@ -501,7 +496,7 @@
     <div class="infographic">
         <!-- Header -->
         <header class="header">
-            <div class="avatar">LG</div>
+            <img src="profile.jpg" alt="Laurent Guizard" class="avatar">
             <h1 class="name">Laurent Guizard</h1>
             <p class="title">Principal Solutions Architect</p>
             <p class="location">Amazon Web Services (AWS) | Singapore</p>
